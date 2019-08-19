@@ -1,0 +1,19 @@
+//<script>
+bouncex.state = {"newvid":false,"iol":true,"tn":1520523871,"pvid":3,"rc":false,"mobile":false,"vip":"223.186.23.100","geo":{"country_code":"IN","country_code3":"IND","country_name":"India","region":"19","city":"Bangalore","postal_code":null,"latitude":12.9833,"longitude":77.5833,"area_code":null,"dma_code":null,"metro_code":null,"continent_code":"AS","zip":null,"country":"IN","region_name":"Karnataka"}};
+bouncex.cookie = {"v":{"ever_logged_in":true,"active_archive_purchase":false,"pmp_subscriber":false,"doc_title":"List of NGOs in Bangalore","doc_short_title":"List of NGOs in Bangalore","doc_category":false,"doc_type":"Archive","ibx_test":false,"interest":"Bangalore","campaign_timer":false,"sub_reported":false},"sid":12,"fvt":1517126308,"vid":1520523047437285,"ao":0,"lp":"https%3A%2F%2Fwww.scribd.com%2Fdoc%2F31914853%2FList-of-NGOs-in-Bangalore","as":0,"vpv":3,"d":"d","r":"www.google.co.in","cvt":1520523047,"gcr":84,"m":0,"did":"3737397552850678531","lvt":1520523871};
+bouncex.brandStyles = false;
+bouncex.webfonts = false;
+bouncex.campaigns = false;
+bouncex.gbi.stacks = false;
+bouncex.debug = false;
+
+
+bouncex.tryCatch(function(){
+	if(bouncex.browser.msie){
+		bouncex.setTimeout2(function(){
+			bouncex.init();
+		}, 0);
+	} else {
+		bouncex.init();
+	}
+})();

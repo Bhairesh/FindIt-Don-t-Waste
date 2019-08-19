@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/FindIt-Don't Waste/Docs/bootstrap-3.3.7-dist/css/bootstrap.css">
+
+<script src="/FindIt-Don't Waste/Javascript/script.js"></script>
+<script type="text/javascript" src="javascript/accordin.js"></script>
+<script type="text/javascript" src="Javascript/addOrphanage.js"></script>
+
+<link rel="stylesheet" href="CSS/loginPopup.css">
+<script type="text/javascript" src="Javascript/loginPopup.js"></script>
+
+<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="CSS/w3(3).css">
+<link rel="stylesheet" href="CSS/w3(4).css">
+
+<title>FindIt-Don't Waste</title>
+
+<head>
+
+	<script type="text/javascript">
+
+		$(document).ready(function() {
+			$("#orphanageDetails").hide();
+  			$("#Next").click(function() {
+    			$("#orphanages").hide();
+    			$("#orphanageDetails").show();
+  			});
+		});
+
+		function displayDelivery(){
+			window.location="delivery.php";
+		}
+
+		function displayContact(){
+			alert("Contact Details: 080-654321");
+		}
+
+	</script>
+
+</head>
+
+<!-- Body Starts Here -->
+<body style="" id="body">
+
+    <!-- Navbar (sit on top) -->
+<div class="" style="">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;position: relative;">
+    <a href="index.html.#home" class="w3-bar-item w3-button">FindIt</a>
+    <div class="w3-right">
+      <a href="index.html.#donate" class="w3-bar-item w3-button">Donate</a>
+      <a href="donateSomething.html" class="w3-bar-item w3-button">Orphanages</a>
+     <!-- <a href="#about" class="w3-bar-item w3-button">About</a>-->
+      <a href="index.html.#contact" class="w3-bar-item w3-button">Contact</a>
+
+      <a href="#" class=""><span style=""><img src="Images/search.png" style="height: 30px;width: 43px;margin:0px 0px 1px 10px;" onclick=""></span></a> <input type="text" name="search" placeholder="Search orphanages.." style="border: none;">
+
+      <a href="#" class=""><span style=""><img src="Images/login-face.png" style="height: 30px;width: 30px;margin:4px 1px 1px 10px;" onclick="display()"></span></a>
+    </div>
+  </div>
+</div>
+	<button style="margin:10px 25px 0px 0px;float: right;" onclick="addOrphanage()">Request to Add Orphanage</button>
+
+<div>
+		<!-- Nearest Orphanages Block -->
+			
+		<div id="orphanages" style="margin:5% 5% 5% 5%;text-align: center;top:">
+
+				<h3>Nearest orphanages</h3>
+
+		  <div style="width:100%;">
+			<div class="" style="background-color: ;border-style: groove;width: 32%;float: left;margin:5px 5px 5px 12px;">
+				<div style="height:250px;width:150px;margin:0px 0px 0px 0px; text-align:center;"><img src="Images/download/download.jpeg"></div>
+				<div style="max-height: 200px;">asdfghjkl</div>			
+			</div>
+		
+			<div class="" style="background-color: ;border-style: groove;width: 32%;float: left;margin:5px 5px 5px 5px;">
+				<div style="height:250px;width:150px;margin:0px 0px 0px 0px;text-align:center;"><img src="Images/download/download.jpeg" style=""></div>
+				<div style="max-height: 200px;">sdfghjkl</div>
+			</div>
+			
+			<div class="" style="background-color: ;border-style: groove;width: 32%;float: left;margin:5px 5px 5px 5px;">
+				<div style="height:250px;width:150px;text-align:center;margin:0px 0px 0px 0px;"><img src="Images/download/download.jpeg"></div>
+				<div style="max-height: 200px;">sdfghjkl</div>	
+			</div>
+		  </div>
+
+			<button style="float:left;margin:10px 0px 0px 0px;">Previuos..</button>	
+			
+			<button style="float: right;margin:10px 0px 0px 0px;" id="Next">Next..</button>
+
+							<div id="myModal1" class="modal">	
+			 			<!-- Modal content orphanage button -->
+ 								<div class="modal-content">
+    								<span class="close" onclick="closePopup1()">&times;</span>	
+    		   						
+								<form action="addOrphanage.php" method="post"></br>
+									<p>Request to Add your Orphanage and get served</p>
+        							<input type="text" name="Name" placeholder="Orphanage Name" required></br></br>
+        							<input type="text" name="Email" placeholder="Email" required></br></br>
+        							<input type="text" name="Phone" placeholder="Phone number" required></br></br>
+        							<input type="text" name="Address" placeholder="Address..." required></br></br>
+        							<input type="submit"  value="Send Request" style="text-align: center;width: auto;"></br></br>	
+    							</form>
+		   						</div>
+							</div>
+		</div>
+
+
+		<div id="orphanageDetails">	
+			<div>
+				<img src="Images/leaf.png" alt="Image" style="display: block; margin-left: auto; margin-right: auto;margin:max-width: 70%;max-height: 500px;margin-top: 40px; ">
+			</div>
+			<br><br><br><br><br><br>
+			<div>
+				<div style="width:50%;text-align:center;float: left;"> 
+					<button class="callbtn" onclick="displayContact()" style="">Call</button>
+				</div>
+
+				<div style="width:50%;text-align:center;float: right;">
+					<button class="deliverbtn" onclick="displayDelivery()" style="">Deliver</button>
+				</div>
+			</div>
+		</div>
+
+</div>
+
+
+</body>
+</html>

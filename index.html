@@ -1,0 +1,265 @@
+<?php
+include('dbConnection.php');
+?>
+
+
+<!DOCTYPE HTML>
+
+<html>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/FindIt-Don't Waste/Docs/bootstrap-3.3.7-dist/css/bootstrap.css">
+
+<script src="Javascript/script.js"></script>
+<script type="text/javascript" src="Javascript/addOrphanage.js"></script>
+<script type="text/javascript" src="Javascript/register.js"></script>
+
+<link rel="stylesheet" href="CSS/loginPopup.css">
+<link rel="stylesheet" href="CSS/style.css">
+<link rel="stylesheet" href="CSS/w3(3).css">
+<link rel="stylesheet" href="CSS/w3(4).css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<title>FindIt-Don't Waste</title>
+
+<head>
+	<style type="text/css">
+
+a:link, a:visited { 
+    color: (internal value);
+    text-decoration: none;
+}
+
+a:link:active, a:visited:active { 
+    color: white;
+}
+#donate div{
+    border: 1px solid;
+    padding: 10px;
+    box-shadow: 5px 10px 18px #888888;
+}
+
+.contact input{
+			width:38%;
+			height:40px;
+			padding: 0px 5%;
+			margin-bottom: 4px;
+			line-height: 40px;
+			background-color: #f3f3f3;
+
+		}
+
+	</style>
+
+	<script type="text/javascript">
+		
+var picCount=0; // global
+var picArray= ["slid4.jpg","slid5.jpg","slid6.jpg","slid7.jpg","slid8.jpg"];
+//
+// gets next picture in array
+function nextPic()
+{ // check if adding 1 exceeds number of pics in array
+picCount=(picCount+1<picArray.length)? picCount+1 : 0;
+// build the img to write to page using the new pic reference
+var build='<img border="0" src="'+picArray[picCount]+'" width="500" height="350" margin-top="10" margin-bottom="10">\
+';
+document.getElementById("imgHolder").innerHTML=build;
+// repeat this after a pause of 2000ms (2sec).
+setTimeout('nextPic()',2000)
+}
+
+function load_php(){
+
+	window.location.href = "search.php";
+}
+
+</script>n
+</head>
+
+  
+
+<!-- Body Starts Here -->
+<body id="body" style="background-color: #f3f3f3;" onload="setTimeout('nextPic()',2000)">
+    <!-- Navbar (sit on top) -->
+<div class="">
+  <div class="w3-bar w3-white w3-padding w3-card" style="letter-spacing:4px;position: relative;background-color: #00b894;">
+    <a href="#home" class="w3-bar-item w3-button">FindIt</a>
+    <div class="w3-right">
+      <a href="#donate" class="w3-bar-item w3-button">Donate</a>
+      <a href="donateSomething.php" class="w3-bar-item w3-button">Orphanages</a>
+     <a href="#about" class="w3-bar-item w3-button">About</a>
+      <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+
+ <form style="width: 280px;height: 40px;float:right;margin-top: 3px;" action="search.php" method="POST">
+  	<span style=""><img src="Images/search.png" style="height: 30px;width: 43px;margin:0px 0px 1px 10px;"></span>
+  	<input type="combo" name="search" placeholder="Search Orphanages..." style="border: none;">
+  </form>   
+
+      <span style=""><img src="Images/login-face.png" style="height: 30px;width: 30px;margin:4px 1px 1px 10px;" onclick="document.getElementById('login').style.display='block'"></span>
+    </div>
+  </div>
+</div>
+
+<!--	<header style="text-align:center;font-size:250%;" class="heading"><u>F</u>ood <u>I</u>n <u>N</u>eed <u>D</u>onate <u>It</u> Don't Waste ( FindIt-Don't Waste )</header> -->
+	
+	<div class="mainPage" id="mainPage" style="background-position: center;background-repeat: no-repeat;background-size: cover;background-image: url('Images/mosaic-2721425.jpg');">
+
+		<!-- Log in  -->
+		
+		<div id="login" class="modal" style="text-align: center;background-color: #f3f3f3;">
+  
+  			<form class="" action="login.php" method="post" style="">
+
+     			 <span onclick="document.getElementById('login').style.display='none'" class="close" title="Close Modal">&times;</span>
+    
+   				 <div class="container">
+
+      				<h1>Log In</h1><br>
+    			  <input type="text" placeholder="Enter User ID" name="uid" required style="width:50%;height:40px;padding: 0px 5%;margin-bottom: 4px;border:none;line-height: 40px;background-color: #fff;"><br><br>
+      			  <input type="password" placeholder="Enter Password" name="password" required style="width:50%;height:40px;padding: 0px 5%;margin-bottom: 4px;border:none;line-height: 40px;background-color: #fff;"><br><br>
+     			  <input type="submit" name="login-face" style="background-color: #0984e3;border-radius: 5px;" value="Login">
+
+  				 </div>
+    			  <span><a href="#">Not yet member..?</a></span>
+    			  <span style="margin-left: 20px;"><a href="signUp.php">Sign up</a></span>
+  			</form>
+	</div>
+
+
+	<div style="width: 100%;height:700px;background-size:100% 100%;background-repeat: no-repeat;">
+		<div id="donate" style="margin-top:0px;">
+			<br><br><br>
+			<div style="border-style: groove;border:none; width:70%;height: 150px;text-align: center;margin:0px 0px 15px 15%;background-color: #C4E538;border-radius:10px;" class="food" name="food" onclick="">
+				<p style="padding-top: 5px;margin: 0px 5px 0px 5px;"><a href="donateSomething.php">	<h1>Donate Food</h1>
+				<p>Kindness in giving creates love. It is one of the beautiful compensations of life that no man can sincerely try to help another without helping himself. I shall pass through this world but once. Any good, therefore,that I can do or any kindness that I can show to any fellow creature, let me do it now.</p></a></p>
+			</div><br>
+
+			<div style="border-style: groove;border:none;width:70%;height: 150px;text-align: center;margin:10px 0px 15px 15%;background-color: #A3CB38;border-radius:10px;" class="cloths" name="cloths">
+			   	<p style="padding-top: 10px;"><a href="delivery.php"><h1>Donate Clothes</h1>
+				<p>The measure of life is not its duration, but its donation.</p></a></p>
+			</div><br>
+			
+			<div style="border-style: groove;border:none;width:70%;height: 150px;text-align: center;margin:0px 0px 0px 15%;background-color: #009432;border-radius:10px;" name="fund" class="fund">
+				<p style="padding-top: 10px;"><a href="fundTransfer.php"><h1 style="">Donate Fund</h1>
+				<p>A man's true wealth is the good he does in this world.</p></a></p>
+				<!--<button >Account Details..</button>-->
+					
+			</div>
+		</div>
+	</div>
+		<br>
+			<hr style="border-style: groove;width:70%;text-align: center;margin-left: 15%;">
+
+			<div style="margin: 5%" class="">
+				<h5 style="margin-left: 15%;">FindIt's Food and Organic Waste Recycling helps you:</h5>
+				<p style="margin-left: 17%;">Raise your recycling rates<br>
+				   Increase diversion rates<br>
+				   Choose a cost-effective disposal option<br>
+                   Foster a green image among your employees and customers<br>
+				   Success made simple.
+				</p><br>
+			
+				<h5 style="margin-left:15%;">Acceptable items for Food and Organic Waste Recycling can include:</h5>
+				<p style="margin-left: 17%;">
+					<ul style="margin-left: 15% " type="dot">
+					<li>Fruits and vegetables</li>
+					<li>Meat, poultry, seafood (bones and shells)</li>
+					<li>Bakery items and ingredients</li>
+					<li>Eggs and paper egg cartons</li>
+					<li>Plants, cut flowers, potting soil</li>
+					<li>Coffee grounds, filters, tea bags</li>
+					<li>Paper products (napkins, paper towels)</li>
+					<li>Ice cream, yogurt, cottage cheese</li> 
+					</ul>
+				</p>
+			
+				<h4 style="margin-left:15%;">Reuse (Donation)</h4>
+					<p style="margin-left:17%;margin-right: 15	%;">Instructions: Food shows, catered events, and similar special events generate significant amounts of usable food and other items (napkins, plants, decorations, etc.) that can be donated to food rescue organizations and others.  Arrange with local organizations in advance of the event. Describe how vendors will be informed about the food donation opportunity, acceptable items, etc. Talk with vendors at food shows and similar events about their reuse practices; these might present a model for other vendors.</p>
+
+					<h4 style="margin-left:15%;">WASTE COMPOSITION, GENERATION, AND QUANTITIES</h4>
+					<p style="margin-left:17%;margin-right: 15%;">Instructions: Conduct a waste assessment using a vendor food waste assessment survey to track waste generation at the event.  As part of the waste assessment, ask vendors and event organizers (or staff) questions about specific waste items, clarification of reuse, recycling, and disposal practices, and potential options for reuse and/or substitution to recyclable or compostable products.  Talk with the vendors about composting and the potential implementation of composting at the event. Use the chart below to summarize the types of wastes generated.</p>
+			</div>
+
+			<hr style="border-style: groove;width:70%;text-align: center;margin-left: 15%;">
+
+
+		<!-- Contact starts Here -->
+		<div style="background-color:;width: 100%;height:450px;background-size:100% 100%;background-repeat: no-repeat;overflow: hidden;">
+			
+				<div style="width: 50%;float: left;border:thin;margin-left: 10%;margin-top: 30px;text-align: center;" id="imgHolder">
+						<img border="0" src="slid9.jpg" style=""  width="500" height="350" margin-top="10" margin-bottom="10">
+
+	 		   </div>
+
+		<div id="contact" style="text-align: center;width: auto;margin-left:55%;margin-top: 30px; ">	
+
+		  <div class="w3-content w3-text-grey" id="contact" style=" ">
+ 			   <h2 class="">Contact Me</h2>
+ 			   <hr style="width:200px;color:black;margin-left:240px; " class="w3-opacity">
+
+   			<p>Send me a message:</p>
+
+   			<form action="contactUs.php"margin-left:  class="contact" method="POST" >
+    			  <p><input class="" type="text" placeholder="Name" required name="Name" style="border: none;"></p>
+    			  <p><input class="" type="text" placeholder="Email" required name="Email" style="border: none;"></p>
+    			  <p><input class="" type="number" placeholder="Phone" required name="Phone" style="border: none;"></p>
+    			  <p><input class="" type="text" placeholder="Message" required name="Message" style="border: none;"></p>
+   				  <p><input class="w3-button w3-light-grey w3-padding-large" type="submit" name="submit" id="sendMsg" value="SEND MESSAGE" style="height: 60px;border-radius: 10px;"></p>
+    		</form>
+		  </div>
+		</div>
+
+		
+		</div>
+		<!-- End Contact Section -->
+
+	</div>
+</body>
+<!-- Body Ends Here -->
+
+<!-- Footer -->
+<footer class="w3-center w3-light w3-padding-32" style="background-color: #05386B;">
+  <p></p>
+    <i class="fa fa-facebook-official w3-hover-opacity" style="color: white;"></i>&nbsp
+    <i class="fa fa-instagram w3-hover-opacity" style="color: white;"></i>&nbsp
+    <i class="fa fa-twitter w3-hover-opacity" style="color: white;"></i>&nbsp
+    <i class="fa fa-linkedin w3-hover-opacity" style="color: white;"></i>
+
+  <p style="text-align:center;color: white;"><!--  &copy 2018 Copyright.--> Designed & Developed by Bhairesh M</p>
+</footer>
+</html>
+
+<!--
+<?php
+/ data insert code starts here.
+if(isset($_POST['submit']))
+{
+			$name = $_POST['Name'];
+			$email = $_POST['Email'];
+			$phone = $_POST['Phone'];
+			$msg = $_POST['Message']; 
+	
+	$res= "INSERT INTO contactus (Name,Email,Phone,Message) VALUES ('$name','$email','$phone','$msg')";
+
+
+	if(mysqli_query($conn,$res))
+	{
+		?>
+		<script>
+		alert('Record inserted...');
+        window.location='index.html'
+        </script>
+		<?php
+	}
+	else
+	{
+		?>
+		<script>
+		alert('error inserting record...');
+        window.location='index.html'
+        </script>
+		<?php
+	}
+}
+// data insert code ends here.
+?>-->
